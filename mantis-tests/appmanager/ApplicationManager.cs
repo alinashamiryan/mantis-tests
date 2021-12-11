@@ -34,7 +34,7 @@ namespace mantis_tests
         private ApplicationManager()
         {
             driver = new ChromeDriver();
-            baseURL = "http://localhost/addressbook";
+            baseURL = "http://localhost";
             Registration = new RegistrationHelper(this);
             Ftp = new FtpHelper(this);
             James = new JamesHelper(this);
