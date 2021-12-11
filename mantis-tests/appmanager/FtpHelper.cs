@@ -12,7 +12,6 @@ namespace mantis_tests
     public class FtpHelper:HelperBase
     {
         private FtpClient client;
-
         public FtpHelper(ApplicationManager manager) : base(manager) 
         {
             client = new FtpClient();

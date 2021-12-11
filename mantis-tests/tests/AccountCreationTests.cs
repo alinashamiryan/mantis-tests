@@ -18,7 +18,6 @@ namespace mantis_tests
             {
                 app.Ftp.Upload("/config_inc.php", localFile);
             }
-           
         }
 
         [Test]
