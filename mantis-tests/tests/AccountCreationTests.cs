@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using NUnit.Framework;
+using SimpleBrowser.WebDriver;
 
 namespace mantis_tests
 {
@@ -25,11 +26,18 @@ namespace mantis_tests
         {
             AccountData account = new AccountData()
             { 
-            Name="testuser6",
+            Name= "testuser4",
             Password ="password",
-            Email= "testuser6@localhost.localdomain"
+            Email= "testuser4@localhost.localdomain"
             };
 
+            List<AccountData> accounts = app.Admin.GetAllAccounts();
+            AccountData existingAccount = accounts.Find(x=>x.Name==account.Name);
+            if(existingAccount != null)
+            {
+                app.Admin.DeleteAccount(existingAccount);
+            }
+ 
             app.James.Delete(account);
             app.James.Add(account);
             app.Registration.Register(account);
